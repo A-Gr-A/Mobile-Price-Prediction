@@ -1,11 +1,9 @@
-from flask import Flask    
-app = Flask(__name__)   # Flask constructor
+from flask import Flask, render_template
+app = Flask(__name__)
   
-# A decorator used to tell the application
-# which URL is associated function
-@app.route('/')      
-def hello():
-    return 'HELLO'
+@app.route("/")
+def index():
+   return "Need to Link"
   
-if __name__=='__main__':
-   app.run()
+if __name__ == '__main__':
+   app.run(debug = True)
