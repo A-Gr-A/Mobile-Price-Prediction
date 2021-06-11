@@ -82,13 +82,17 @@ const theme = createMuiTheme({
 const CssTextField = withStyles({
   root: {
     '& label.Mui-focused': {
-      color: '#ff8080',
+      color: '#ff8080 ',
     },
+    
     '& label':{
       color: 'rgba(255, 128, 128, 0.5)'
     },
     '& .MuiInput-underline:after': {
       borderBottomColor: 'green',
+    },
+    '& .MuiInput-input': {
+      color: 'green',
     },
     '& .MuiOutlinedInput-root': {
       '& fieldset': {
@@ -101,6 +105,10 @@ const CssTextField = withStyles({
         borderColor: '#ff8080',
       },
     },
+    '& .MuiOutlinedInput-input': {
+      color:'#ff8080'      
+    },
+
   },
 })(TextField);
 
@@ -144,10 +152,10 @@ export default function CustomizedInputs() {
     <>
     <form   noValidate>
       <CssTextField
-        style={{marginTop:"10px",width:"500px"}}
+        variant="outlined"
+        style={{color: "#ff8080 !important", marginTop:"10px",width:"500px"}}
         // className={classes.margin}
         label="Battery capacity in mAh"
-        variant="outlined"
         id="custom-css-outlined-input"
       /> <br/>
       <CssTextField
