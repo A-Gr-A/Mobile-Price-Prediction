@@ -16,11 +16,11 @@
 // //     palette: {
 // //       primary: {
 // //         // Purple and green play nicely together.
-// //         main: '#ff8080',
+// //         main: '#f9cec3',
 // //       },
 // //       text:{
-// //           primary: '#ff8080',
-// //           secondary: 'rgba(255, 128, 128, 0.5)'         
+// //           primary: '#f9cec3',
+// //           secondary: 'rgba(249, 206, 195, 0.5)'         
 // //       }
 // //     },
 // //   });
@@ -74,7 +74,7 @@ import CustomSlider from './CustomSlider.js'
 const theme = createMuiTheme({
   palette: {
     primary: {
-      main : "#ff8080"
+      main : "#f9cec3"
     }
   },
 });
@@ -82,32 +82,32 @@ const theme = createMuiTheme({
 const CssTextField = withStyles({
   root: {
     '& label.Mui-focused': {
-      color: '#ff8080 ',
+      color: '#f9cec3 ',
     },
     
     '& label':{
-      color: 'rgba(255, 128, 128, 0.5)'
+      color: 'rgba(249, 206, 195, 0.5)'
     },
     '& .MuiInput-underline:after': {
       borderBottomColor: 'green',
     },
     "& .MuiFilledInput-root":{
-      color:"#ff8080"
+      color:"#f9cec3"
     },
     '& .MuiOutlinedInput-root': {
       '& fieldset': {
-        borderColor: 'rgba(255, 128, 128, 0.5)',
+        borderColor: 'rgba(249, 206, 195, 0.5)',
       },
       '&:hover fieldset': {
-        borderColor: '#ff8080',
+        borderColor: '#f9cec3',
       },
       '&.Mui-focused fieldset': {
-        borderColor: '#ff8080',
+        borderColor: '#f9cec3',
       },
   
     },
     '& .MuiOutlinedInput-input': {
-      color:'#ff8080'      
+      color:'#f9cec3'      
     },
 
   },
@@ -115,7 +115,7 @@ const CssTextField = withStyles({
 
 const MyCheckbox = withStyles({
   root:{
-    color:'#ff8080',
+    color:'#f9cec3',
     "&$checked": {
       "& .MuiIconButton-label": {
         position: "relative",
@@ -166,12 +166,12 @@ export default function CustomizedInputs() {
     <form   noValidate>
       <CssTextField
         variant="outlined"
-        style={{color: "#ff8080 !important", marginTop:"10px",width:"300px", marginRight:"10px", marginLeft:"0px"}}
+        style={{color: "#f9cec3 !important", marginTop:"10px",width:"300px", marginRight:"10px", marginLeft:"0px"}}
         // className={classes.margin}
         label="Battery capacity"
         id="custom-css-outlined-input"
         InputProps={{
-          endAdornment: <InputAdornment position="end"><span style={{color:"rgba(255, 128, 128, 0.5)"}} >mAh</span></InputAdornment>,
+          endAdornment: <InputAdornment position="end"><span style={{color:"rgba(249, 206, 195, 0.5)"}} >mAh</span></InputAdornment>,
         }}
       /> 
       <CssTextField
@@ -181,7 +181,7 @@ export default function CustomizedInputs() {
         variant="outlined"
         id="custom-css-outlined-input"
         InputProps={{
-          endAdornment: <InputAdornment position="end"><span style={{color:"rgba(255, 128, 128, 0.5)"}} >GHz</span></InputAdornment>,
+          endAdornment: <InputAdornment position="end"><span style={{color:"rgba(249, 206, 195, 0.5)"}} >GHz</span></InputAdornment>,
         }}
       />
       <CssTextField
@@ -191,7 +191,7 @@ export default function CustomizedInputs() {
         variant="outlined"
         id="custom-css-outlined-input"
         InputProps={{
-          endAdornment: <InputAdornment position="end"><span style={{color:"rgba(255, 128, 128, 0.5)"}} >GB</span></InputAdornment>,
+          endAdornment: <InputAdornment position="end"><span style={{color:"rgba(249, 206, 195, 0.5)"}} >GB</span></InputAdornment>,
         }}
       />
       <CssTextField
@@ -201,7 +201,7 @@ export default function CustomizedInputs() {
         variant="outlined"
         id="custom-css-outlined-input"
         InputProps={{
-          endAdornment: <InputAdornment position="end"><span style={{color:"rgba(255, 128, 128, 0.5)"}} >mp</span></InputAdornment>,
+          endAdornment: <InputAdornment position="end"><span style={{color:"rgba(249, 206, 195, 0.5)"}} >mp</span></InputAdornment>,
         }}
       />
       <CssTextField
@@ -211,7 +211,7 @@ export default function CustomizedInputs() {
         variant="outlined"
         id="custom-css-outlined-input"
         InputProps={{
-          endAdornment: <InputAdornment position="end"><span style={{color:"rgba(255, 128, 128, 0.5)"}} >mp</span></InputAdornment>,
+          endAdornment: <InputAdornment position="end"><span style={{color:"rgba(249, 206, 195, 0.5)"}} >mp</span></InputAdornment>,
         }}
       />
       <CssTextField
@@ -221,7 +221,7 @@ export default function CustomizedInputs() {
         variant="outlined"
         id="custom-css-outlined-input"
         InputProps={{
-          endAdornment: <InputAdornment position="end"><span style={{color:"rgba(255, 128, 128, 0.5)"}} >cm</span></InputAdornment>,
+          endAdornment: <InputAdornment position="end"><span style={{color:"rgba(249, 206, 195, 0.5)"}} >cm</span></InputAdornment>,
         }}
       />
       <CssTextField
@@ -231,7 +231,7 @@ export default function CustomizedInputs() {
         variant="outlined"
         id="custom-css-outlined-input"
         InputProps={{
-          endAdornment: <InputAdornment position="end"><span style={{color:"rgba(255, 128, 128, 0.5)"}} >g</span></InputAdornment>,
+          endAdornment: <InputAdornment position="end"><span style={{color:"rgba(249, 206, 195, 0.5)"}} >g</span></InputAdornment>,
         }}
       />
       <CssTextField
@@ -241,7 +241,7 @@ export default function CustomizedInputs() {
         variant="outlined"
         id="custom-css-outlined-input"
         InputProps={{
-          endAdornment: <InputAdornment position="end"><span style={{color:"rgba(255, 128, 128, 0.5)"}} >px</span></InputAdornment>,
+          endAdornment: <InputAdornment position="end"><span style={{color:"rgba(249, 206, 195, 0.5)"}} >px</span></InputAdornment>,
         }}
       />
       <CssTextField
@@ -251,7 +251,7 @@ export default function CustomizedInputs() {
         variant="outlined"
         id="custom-css-outlined-input"
         InputProps={{
-          endAdornment: <InputAdornment position="end"><span style={{color:"rgba(255, 128, 128, 0.5)"}} >px</span></InputAdornment>,
+          endAdornment: <InputAdornment position="end"><span style={{color:"rgba(249, 206, 195, 0.5)"}} >px</span></InputAdornment>,
         }}
       />
       <CssTextField
@@ -261,7 +261,7 @@ export default function CustomizedInputs() {
         variant="outlined"
         id="custom-css-outlined-input"
         InputProps={{
-          endAdornment: <InputAdornment position="end"><span style={{color:"rgba(255, 128, 128, 0.5)"}} >cm</span></InputAdornment>,
+          endAdornment: <InputAdornment position="end"><span style={{color:"rgba(249, 206, 195, 0.5)"}} >cm</span></InputAdornment>,
         }}
       />
       <CssTextField
@@ -271,7 +271,7 @@ export default function CustomizedInputs() {
         variant="outlined"
         id="custom-css-outlined-input"
         InputProps={{
-          endAdornment: <InputAdornment position="end"><span style={{color:"rgba(255, 128, 128, 0.5)"}} >cm</span></InputAdornment>,
+          endAdornment: <InputAdornment position="end"><span style={{color:"rgba(249, 206, 195, 0.5)"}} >cm</span></InputAdornment>,
         }}
       />
       <CssTextField
@@ -281,7 +281,7 @@ export default function CustomizedInputs() {
         variant="outlined"
         id="custom-css-outlined-input"
         InputProps={{
-          endAdornment: <InputAdornment position="end"><span style={{color:"rgba(255, 128, 128, 0.5)"}} >h</span></InputAdornment>,
+          endAdornment: <InputAdornment position="end"><span style={{color:"rgba(249, 206, 195, 0.5)"}} >h</span></InputAdornment>,
         }}
       />
       <CustomSlider/><br/>
@@ -289,37 +289,37 @@ export default function CustomizedInputs() {
     style={{marginTop:"10px", marginLeft:"0px"}}
     value='blue'
     control={<ThemeProvider theme={theme}><MyCheckbox color="primary"/></ThemeProvider>}
-    label={<span style={{color:"#ff8080"}}>Bluetooth</span>}
+    label={<span style={{color:"#f9cec3"}}>Bluetooth</span>}
     />
     <FormControlLabel
     style={{marginTop:"10px", marginLeft:"0px"}}
     value='dual_sim'
     control={<ThemeProvider theme={theme}><MyCheckbox color="primary"/></ThemeProvider>}
-    label={<span style={{color:"#ff8080"}}>Dual Sim Support</span>}
+    label={<span style={{color:"#f9cec3"}}>Dual Sim Support</span>}
     />
     <FormControlLabel
     style={{marginTop:"10px", marginLeft:"0px"}}
     value='four_g'
     control={<ThemeProvider theme={theme}><MyCheckbox color="primary"/></ThemeProvider>}
-    label={<span style={{color:"#ff8080"}}>4G</span>}
+    label={<span style={{color:"#f9cec3"}}>4G</span>}
     />
     <FormControlLabel
     style={{marginTop:"10px", marginLeft:"0px"}}
     value='three_g'
     control={<ThemeProvider theme={theme}><MyCheckbox color="primary"/></ThemeProvider>}
-    label={<span style={{color:"#ff8080"}}>3G</span>}
+    label={<span style={{color:"#f9cec3"}}>3G</span>}
     />
     <FormControlLabel
     style={{marginTop:"10px", marginLeft:"0px"}}
     value='touch_screen'
     control={<ThemeProvider theme={theme}><MyCheckbox color="primary"/></ThemeProvider>}
-    label={<span style={{color:"#ff8080"}}>WiFi</span>}
+    label={<span style={{color:"#f9cec3"}}>WiFi</span>}
     />
     <FormControlLabel
     style={{marginTop:"10px", marginLeft:"0px"}}
     value='four_g'
     control={<ThemeProvider theme={theme}><MyCheckbox color="primary"/></ThemeProvider>}
-    label={<span style={{color:"#ff8080"}}>Touch</span>}
+    label={<span style={{color:"#f9cec3"}}>Touch</span>}
     />
     </form>
     </>
