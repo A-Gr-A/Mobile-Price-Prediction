@@ -67,7 +67,7 @@ import {
 } from '@material-ui/core/styles';
 import CheckBox from '@material-ui/core/Checkbox'
 import TextField from '@material-ui/core/TextField';
-import { FormControlLabel, ThemeProvider } from '@material-ui/core';
+import { FormControlLabel, ThemeProvider, InputAdornment } from '@material-ui/core';
 import { createMuiTheme } from '@material-ui/core/styles';
 // import FormControl from '@material-ui/core/FormControl';
 import CustomSlider from './CustomSlider.js'
@@ -144,41 +144,182 @@ const MyCheckbox = withStyles({
 //   margin: {
 //     margin: theme.spacing(1),
 //   },
+//   withoutLabel: {
+//     marginTop: theme.spacing(3),
+//   },
+//   textField: {
+//     width: '25ch',
+//   },
 // }));
-
 export default function CustomizedInputs() {
   // const classes = useStyles();
+  // const [values, setValues] = React.useState({
+  //   amount: '',
+  //   password: '',
+  //   weight: '',
+  //   weightRange: '',
+  //   showPassword: false,
+  // });
 
   return (
     <>
     <form   noValidate>
       <CssTextField
         variant="outlined"
-        style={{color: "#ff8080 !important", marginTop:"10px",width:"500px"}}
+        style={{color: "#ff8080 !important", marginTop:"10px",width:"300px", marginRight:"10px", marginLeft:"0px"}}
         // className={classes.margin}
-        label="Battery capacity in mAh"
+        label="Battery capacity"
         id="custom-css-outlined-input"
-      /> <br/>
+        InputProps={{
+          endAdornment: <InputAdornment position="end"><span style={{color:"rgba(255, 128, 128, 0.5)"}} >mAh</span></InputAdornment>,
+        }}
+      /> 
       <CssTextField
-        style={{marginTop:"10px",width:"500px"}}
+        style={{marginTop:"10px",width:"300px", marginRight:"10px", marginLeft:"0px"}}
         // className={classes.margin}
         label="Processor Clock speed"
         variant="outlined"
         id="custom-css-outlined-input"
-      /><br/>
+        InputProps={{
+          endAdornment: <InputAdornment position="end"><span style={{color:"rgba(255, 128, 128, 0.5)"}} >GHz</span></InputAdornment>,
+        }}
+      />
       <CssTextField
-        style={{marginTop:"10px",width:"500px"}}
+        style={{marginTop:"10px",width:"300px", marginRight:"10px", marginLeft:"0px"}}
         // className={classes.margin}
-        label="Internal Memory in GB"
+        label="Internal Memory"
         variant="outlined"
         id="custom-css-outlined-input"
-      /><br/>
-      <CustomSlider/>
+        InputProps={{
+          endAdornment: <InputAdornment position="end"><span style={{color:"rgba(255, 128, 128, 0.5)"}} >GB</span></InputAdornment>,
+        }}
+      />
+      <CssTextField
+        style={{marginTop:"10px",width:"300px", marginRight:"10px", marginLeft:"0px"}}
+        // className={classes.margin}
+        label="Primary Camera"
+        variant="outlined"
+        id="custom-css-outlined-input"
+        InputProps={{
+          endAdornment: <InputAdornment position="end"><span style={{color:"rgba(255, 128, 128, 0.5)"}} >mp</span></InputAdornment>,
+        }}
+      />
+      <CssTextField
+        style={{marginTop:"10px",width:"300px", marginRight:"10px", marginLeft:"0px"}}
+        // className={classes.margin}
+        label="Front Camera"
+        variant="outlined"
+        id="custom-css-outlined-input"
+        InputProps={{
+          endAdornment: <InputAdornment position="end"><span style={{color:"rgba(255, 128, 128, 0.5)"}} >mp</span></InputAdornment>,
+        }}
+      />
+      <CssTextField
+        style={{marginTop:"10px",width:"300px", marginRight:"10px", marginLeft:"0px"}}
+        // className={classes.margin}
+        label="Mobile Depth"
+        variant="outlined"
+        id="custom-css-outlined-input"
+        InputProps={{
+          endAdornment: <InputAdornment position="end"><span style={{color:"rgba(255, 128, 128, 0.5)"}} >cm</span></InputAdornment>,
+        }}
+      />
+      <CssTextField
+        style={{marginTop:"10px",width:"300px", marginRight:"10px", marginLeft:"0px"}}
+        // className={classes.margin}
+        label="Mobile Weight"
+        variant="outlined"
+        id="custom-css-outlined-input"
+        InputProps={{
+          endAdornment: <InputAdornment position="end"><span style={{color:"rgba(255, 128, 128, 0.5)"}} >g</span></InputAdornment>,
+        }}
+      />
+      <CssTextField
+        style={{marginTop:"10px",width:"300px", marginRight:"10px", marginLeft:"0px"}}
+        // className={classes.margin}
+        label="Pixel Resolution Height"
+        variant="outlined"
+        id="custom-css-outlined-input"
+        InputProps={{
+          endAdornment: <InputAdornment position="end"><span style={{color:"rgba(255, 128, 128, 0.5)"}} >px</span></InputAdornment>,
+        }}
+      />
+      <CssTextField
+        style={{marginTop:"10px",width:"300px", marginRight:"10px", marginLeft:"0px"}}
+        // className={classes.margin}
+        label="Pixel Resolution Width"
+        variant="outlined"
+        id="custom-css-outlined-input"
+        InputProps={{
+          endAdornment: <InputAdornment position="end"><span style={{color:"rgba(255, 128, 128, 0.5)"}} >px</span></InputAdornment>,
+        }}
+      />
+      <CssTextField
+        style={{marginTop:"10px",width:"300px", marginRight:"10px", marginLeft:"0px"}}
+        // className={classes.margin}
+        label="Screen Height"
+        variant="outlined"
+        id="custom-css-outlined-input"
+        InputProps={{
+          endAdornment: <InputAdornment position="end"><span style={{color:"rgba(255, 128, 128, 0.5)"}} >cm</span></InputAdornment>,
+        }}
+      />
+      <CssTextField
+        style={{marginTop:"10px",width:"300px", marginRight:"10px", marginLeft:"0px"}}
+        // className={classes.margin}
+        label="Screen Width"
+        variant="outlined"
+        id="custom-css-outlined-input"
+        InputProps={{
+          endAdornment: <InputAdornment position="end"><span style={{color:"rgba(255, 128, 128, 0.5)"}} >cm</span></InputAdornment>,
+        }}
+      />
+      <CssTextField
+        style={{marginTop:"10px",width:"300px", marginRight:"10px", marginLeft:"0px"}}
+        // className={classes.margin}
+        label="Talk Time"
+        variant="outlined"
+        id="custom-css-outlined-input"
+        InputProps={{
+          endAdornment: <InputAdornment position="end"><span style={{color:"rgba(255, 128, 128, 0.5)"}} >h</span></InputAdornment>,
+        }}
+      />
+      <CustomSlider/><br/>
       <FormControlLabel
-    style={{marginLeft:"20px"}}
+    style={{marginTop:"10px", marginLeft:"0px"}}
     value='blue'
     control={<ThemeProvider theme={theme}><MyCheckbox color="primary"/></ThemeProvider>}
     label={<span style={{color:"#ff8080"}}>Bluetooth</span>}
+    />
+    <FormControlLabel
+    style={{marginTop:"10px", marginLeft:"0px"}}
+    value='dual_sim'
+    control={<ThemeProvider theme={theme}><MyCheckbox color="primary"/></ThemeProvider>}
+    label={<span style={{color:"#ff8080"}}>Dual Sim Support</span>}
+    />
+    <FormControlLabel
+    style={{marginTop:"10px", marginLeft:"0px"}}
+    value='four_g'
+    control={<ThemeProvider theme={theme}><MyCheckbox color="primary"/></ThemeProvider>}
+    label={<span style={{color:"#ff8080"}}>4G</span>}
+    />
+    <FormControlLabel
+    style={{marginTop:"10px", marginLeft:"0px"}}
+    value='three_g'
+    control={<ThemeProvider theme={theme}><MyCheckbox color="primary"/></ThemeProvider>}
+    label={<span style={{color:"#ff8080"}}>3G</span>}
+    />
+    <FormControlLabel
+    style={{marginTop:"10px", marginLeft:"0px"}}
+    value='touch_screen'
+    control={<ThemeProvider theme={theme}><MyCheckbox color="primary"/></ThemeProvider>}
+    label={<span style={{color:"#ff8080"}}>WiFi</span>}
+    />
+    <FormControlLabel
+    style={{marginTop:"10px", marginLeft:"0px"}}
+    value='four_g'
+    control={<ThemeProvider theme={theme}><MyCheckbox color="primary"/></ThemeProvider>}
+    label={<span style={{color:"#ff8080"}}>Touch</span>}
     />
     </form>
     </>

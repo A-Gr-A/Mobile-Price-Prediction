@@ -12,16 +12,60 @@ const MySlider = withStyles({
     },
     rail:{
         height:2,
-    }
+    },
+    valueLabel: {
+        // left: 'calc(-50% + 12px)',
+        top: 20,
+        '& *': {
+          background: 'transparent',
+          color: '#ff8080',
+        },
+    },
+    mark:{
+        backgroundColor:"#ff8080",
+        height:8,
+        width:1,
+        marginTop: -3,
+    },
+    markActive: {
+        opacity: 1,
+        backgroundColor: 'currentColor',
+      },
 })(Slider)
+const marks = [
+    {
+      value: 1,
+    },
+    {
+      value: 2,
+    },
+    {
+      value: 3,
+    },
+    {
+      value: 4,
+    },
+    {
+        value: 5,
+    },
+    {
+        value: 6,
+    },
+    {
+        value: 7,
+    },
+    {
+        value: 8,
+    },
+  ];
 
 export default function CustomSlider(){
     return(
         <>
-        <Typography id="discrete-slider-small-steps" gutterBottom>
-           <span style={{color:"#ff8080", marginTop:"20px"}}>Number of CPU cores</span> 
+        <Typography  style={{marginTop:"20px"}} id="discrete-slider-small-steps" gutterBottom>
+           <span style={{color:"#ff8080"}}>Number of CPU cores</span> 
         </Typography>
-        <MySlider  style={{width:"200px"}} defaultValue={1} max={8} valueLabelDisplay='auto'/>
+        <MySlider marks={marks} style={{width:"200px"}} min={1} defaultValue={1} max={8} valueLabelDisplay='auto'/>
         </>
     )
 }
