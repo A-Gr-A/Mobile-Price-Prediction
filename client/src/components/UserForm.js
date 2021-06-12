@@ -5,7 +5,7 @@ import {
 } from '@material-ui/core/styles';
 import CheckBox from '@material-ui/core/Checkbox'
 import TextField from '@material-ui/core/TextField';
-import { FormControlLabel, ThemeProvider, InputAdornment,Button } from '@material-ui/core';
+import { FormControlLabel,ThemeProvider,Button,InputAdornment} from  '@material-ui/core';
 import { createMuiTheme } from '@material-ui/core/styles';
 import CustomSlider from './CustomSlider.js'
 const theme = createMuiTheme({
@@ -15,7 +15,6 @@ const theme = createMuiTheme({
     }
   },
 });
-
 const CssTextField = withStyles({
   root: {
     '& label.Mui-focused': {
@@ -121,7 +120,8 @@ let myObj ={
       </Button>
     <form   noValidate>
       <CssTextField
-        onChange={event => setBatCap(event.target.value)}
+        type="number"
+        autoComplete="off"
         onChange={event => setBatCap(event.target.value)}
         variant="outlined"
         style={{color: "#f9cec3 !important", marginTop:"10px",width:"300px", marginRight:"10px", marginLeft:"0px"}}
@@ -133,7 +133,9 @@ let myObj ={
         }}
       /> 
       <CssTextField
-        onChange={event => setBatCap(event.target.value)}
+        type="number"
+        autoComplete="off"
+        onChange={event => setClkspeed(event.target.value)}
         style={{marginTop:"10px",width:"300px", marginRight:"10px", marginLeft:"0px"}}
         // className={classes.margin}
         label="Processor Clock speed"
@@ -144,6 +146,8 @@ let myObj ={
         }}
       />
       <CssTextField
+        type="number"
+        autoComplete="off"
         onChange={event => setIntMem(event.target.value)}
         style={{marginTop:"10px",width:"300px", marginRight:"10px", marginLeft:"0px"}}
         // className={classes.margin}
@@ -155,6 +159,8 @@ let myObj ={
         }}
       />
       <CssTextField
+        type="number"
+        autoComplete="off"
         onChange={event => setPc(event.target.value)}
         style={{marginTop:"10px",width:"300px", marginRight:"10px", marginLeft:"0px"}}
         // className={classes.margin}
@@ -166,6 +172,8 @@ let myObj ={
         }}
       />
       <CssTextField
+        type="number"
+        autoComplete="off"
         onChange={event => setFc(event.target.value)}
         style={{marginTop:"10px",width:"300px", marginRight:"10px", marginLeft:"0px"}}
         // className={classes.margin}
@@ -177,7 +185,9 @@ let myObj ={
         }}
       />
       <CssTextField
-        onChange={event => setMobWeight(event.target.value)}
+        type="number"
+        autoComplete="off"
+        onChange={event => setMobDepth(event.target.value)}
         style={{marginTop:"10px",width:"300px", marginRight:"10px", marginLeft:"0px"}}
         // className={classes.margin}
         label="Mobile Depth"
@@ -188,6 +198,8 @@ let myObj ={
         }}
       />
       <CssTextField
+        type="number"
+        autoComplete="off"
         onChange={event => setMobWeight(event.target.value)}
         style={{marginTop:"10px",width:"300px", marginRight:"10px", marginLeft:"0px"}}
         // className={classes.margin}
@@ -199,6 +211,8 @@ let myObj ={
         }}
       />
       <CssTextField
+        type="number"
+        autoComplete="off"
         onChange={event => setPxh(event.target.value)}
         style={{marginTop:"10px",width:"300px", marginRight:"10px", marginLeft:"0px"}}
         // className={classes.margin}
@@ -210,6 +224,8 @@ let myObj ={
         }}
       />
       <CssTextField
+        type="number"
+        autoComplete="off"
         onChange={event => setPxw(event.target.value)}
         style={{marginTop:"10px",width:"300px", marginRight:"10px", marginLeft:"0px"}}
         // className={classes.margin}
@@ -221,6 +237,8 @@ let myObj ={
         }}
       />
       <CssTextField
+        type="number"
+        autoComplete="off"
         onChange={event => setSh(event.target.value)}
         style={{marginTop:"10px",width:"300px", marginRight:"10px", marginLeft:"0px"}}
         // className={classes.margin}
@@ -232,6 +250,8 @@ let myObj ={
         }}
       />
       <CssTextField
+        type="number"
+        autoComplete="off"
         onChange={event => setSw(event.target.value)}
         style={{marginTop:"10px",width:"300px", marginRight:"10px", marginLeft:"0px"}}
         // className={classes.margin}
@@ -243,6 +263,8 @@ let myObj ={
         }}
       />
       <CssTextField
+        type="number"
+        autoComplete="off"
         onChange={event => setTt(event.target.value)}
         style={{marginTop:"10px",width:"300px", marginRight:"10px", marginLeft:"0px"}}
         // className={classes.margin}
@@ -253,47 +275,37 @@ let myObj ={
           endAdornment: <InputAdornment position="end"><span style={{color:"rgba(249, 206, 195, 0.5)"}} >h</span></InputAdornment>,
         }}
       />
-      <CustomSlider/><br/>
-    <FormControlLabel
-    onChange={event=> setBlu(event.target.value)}
-    style={{marginTop:"10px", marginLeft:"0px"}}
+      <CustomSlider updateVal={(nomb)=>{setCpuCores(nomb)}}/><br/>
+    <FormControlLabel   style={{marginTop:"10px", marginLeft:"0px"}}
     value='blue'
-    control={<ThemeProvider theme={theme}><MyCheckbox color="primary"/></ThemeProvider>}
+    control={<ThemeProvider theme={theme}><MyCheckbox onChange={(event)=>{setBlu(event.target.checked)}} color="primary"/></ThemeProvider>}
     label={<span style={{color:"#f9cec3"}}>Bluetooth</span>}
     />
-    <FormControlLabel
-    onChange={event=> setDsim(event.target.value)}
-    style={{marginTop:"10px", marginLeft:"0px"}}
-    value='dual_sim'
-    control={<ThemeProvider theme={theme}><MyCheckbox color="primary"/></ThemeProvider>}
-    label={<span style={{color:"#f9cec3"}}>Dual Sim Support</span>}
+    <FormControlLabel   style={{marginTop:"10px", marginLeft:"0px"}}
+    value=''
+    control={<ThemeProvider theme={theme}><MyCheckbox onChange={(event)=>{setDsim(event.target.checked)}} color="primary"/></ThemeProvider>}
+    label={<span style={{color:"#f9cec3"}}>Dual Sim support</span>}
     />
     <FormControlLabel
-    onChange={event=> setFourg(event.target.value)}
     style={{marginTop:"10px", marginLeft:"0px"}}
     value='four_g'
-    control={<ThemeProvider theme={theme}><MyCheckbox color="primary"/></ThemeProvider>}
+    control={<ThemeProvider theme={theme}><MyCheckbox onChange={(event)=>{setFourg(event.target.checked)}} color="primary"/></ThemeProvider>}
     label={<span style={{color:"#f9cec3"}}>4G</span>}
     />
     <FormControlLabel
-    onChange={event=> setThreeg(event.target.value)}
     style={{marginTop:"10px", marginLeft:"0px"}}
     value='three_g'
-    control={<ThemeProvider theme={theme}><MyCheckbox color="primary"/></ThemeProvider>}
+    control={<ThemeProvider theme={theme}><MyCheckbox onChange={(event)=>{setThreeg(event.target.checked)}} color="primary"/></ThemeProvider>}
     label={<span style={{color:"#f9cec3"}}>3G</span>}
     />
-    <FormControlLabel
-    onChange={event=> setWif(event.target.value)}
-    style={{marginTop:"10px", marginLeft:"0px"}}
+    <FormControlLabel   style={{marginTop:"10px", marginLeft:"0px"}}
     value='touch_screen'
-    control={<ThemeProvider theme={theme}><MyCheckbox color="primary"/></ThemeProvider>}
+    control={<ThemeProvider theme={theme}><MyCheckbox onChange={(event)=>{setWif(event.target.checked)}} color="primary"/></ThemeProvider>}
     label={<span style={{color:"#f9cec3"}}>WiFi</span>}
     />
-    <FormControlLabel
-    onChange={event=> setTou(event.target.value)}
-    style={{marginTop:"10px", marginLeft:"0px"}}
+    <FormControlLabel   style={{marginTop:"10px", marginLeft:"0px"}}
     value='four_g'
-    control={<ThemeProvider theme={theme}><MyCheckbox color="primary"/></ThemeProvider>}
+    control={<ThemeProvider theme={theme}><MyCheckbox onChange={(event)=>{setTou(event.target.checked)}} color="primary"/></ThemeProvider>}
     label={<span style={{color:"#f9cec3"}}>Touch</span>}
     />
     </form>

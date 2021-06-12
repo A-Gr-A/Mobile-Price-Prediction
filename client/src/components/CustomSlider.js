@@ -58,14 +58,14 @@ const marks = [
         value: 8,
     },
   ];
-
-export default function CustomSlider(){
+    
+export default function CustomSlider(props){
     return(
         <>
         <Typography  style={{marginTop:"20px"}} id="discrete-slider-small-steps" gutterBottom>
            <span style={{color:"#f9cec3"}}>Number of CPU cores</span> 
         </Typography>
-        <MySlider marks={marks} style={{width:"200px"}} min={1} defaultValue={1} max={8} valueLabelDisplay='auto'/>
+        <MySlider marks={marks} onChange={(event,newValue)=>{props.updateVal(newValue)}} style={{width:"200px"}} min={1} defaultValue={1} max={8} valueLabelDisplay='auto'/>
         </>
     )
 }
