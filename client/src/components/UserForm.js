@@ -1,113 +1,49 @@
-// import React from 'react'
-// import './../styles/UserForm.css'
-// import {TextField} from '@material-ui/core'
-// import {
-//   fade,
-//   ThemeProvider,
-//   withStyles,
-//   makeStyles,
-//   createMuiTheme,
-// } from '@material-ui/core/styles';
-// import InputBase from '@material-ui/core/InputBase';
-// import InputLabel from '@material-ui/core/InputLabel';
-// import FormControl from '@material-ui/core/FormControl';
-// import { green } from '@material-ui/core/colors';
-// // const theme = createMuiTheme({
-// //     palette: {
-// //       primary: {
-// //         // Purple and green play nicely together.
-// //         main: '#ff8080',
-// //       },
-// //       text:{
-// //           primary: '#ff8080',
-// //           secondary: 'rgba(255, 128, 128, 0.5)'         
-// //       }
-// //     },
-// //   });
-// const CssTextField = withStyles({
-//   root: {
-//     '& label.Mui-focused': {
-//       color: 'green',
-//     },
-//     '& .MuiInput-underline:after': {
-//       borderBottomColor: 'green',
-//     },
-//     '& .MuiOutlinedInput-root': {
-//       '& fieldset': {
-//         borderColor: 'red',
-//       },
-//       '&:hover fieldset': {
-//         borderColor: 'yellow',
-//       },
-//       '&.Mui-focused fieldset': {
-//         borderColor: 'green',
-//       },
-//     },
-//   },
-// })(TextField);
-
-// export default function form(){
-//     return(
-//         <div className='form-container'>
-//             {/* <ThemeProvider theme={theme}>
-//             <TextField id="outlined-basic" label="Battery Capacity in mAh" className="text-fields" variant="outlined" />
-//             </ThemeProvider>          */}
-//             <CssTextField
-//         className={classes.margin}
-//         label="Custom CSS"
-//         variant="outlined"
-//         id="custom-css-outlined-input"
-//          />
-//         </div>
-//     )
-// }
 import React from 'react';
+import {useState} from 'react'
 import {
   withStyles,
 } from '@material-ui/core/styles';
 import CheckBox from '@material-ui/core/Checkbox'
 import TextField from '@material-ui/core/TextField';
-import { FormControlLabel, ThemeProvider, InputAdornment } from '@material-ui/core';
+import { FormControlLabel,ThemeProvider,Button,InputAdornment} from  '@material-ui/core';
 import { createMuiTheme } from '@material-ui/core/styles';
-// import FormControl from '@material-ui/core/FormControl';
 import CustomSlider from './CustomSlider.js'
 const theme = createMuiTheme({
   palette: {
     primary: {
-      main : "#ff8080"
+      main : "#f9cec3"
     }
   },
 });
-
 const CssTextField = withStyles({
   root: {
     '& label.Mui-focused': {
-      color: '#ff8080 ',
+      color: '#f9cec3 ',
     },
     
     '& label':{
-      color: 'rgba(255, 128, 128, 0.5)'
+      color: 'rgba(249, 206, 195, 0.5)'
     },
     '& .MuiInput-underline:after': {
       borderBottomColor: 'green',
     },
     "& .MuiFilledInput-root":{
-      color:"#ff8080"
+      color:"#f9cec3"
     },
     '& .MuiOutlinedInput-root': {
       '& fieldset': {
-        borderColor: 'rgba(255, 128, 128, 0.5)',
+        borderColor: 'rgba(249, 206, 195, 0.5)',
       },
       '&:hover fieldset': {
-        borderColor: '#ff8080',
+        borderColor: '#f9cec3',
       },
       '&.Mui-focused fieldset': {
-        borderColor: '#ff8080',
+        borderColor: '#f9cec3',
       },
   
     },
     '& .MuiOutlinedInput-input': {
-      color:'#ff8080'      
+      color:'#f9cec3'      
     },
 
   },
@@ -115,7 +51,7 @@ const CssTextField = withStyles({
 
 const MyCheckbox = withStyles({
   root:{
-    color:'#ff8080',
+    color:'#f9cec3',
     "&$checked": {
       "& .MuiIconButton-label": {
         position: "relative",
@@ -135,191 +71,242 @@ const MyCheckbox = withStyles({
   },
   
 })(CheckBox);
-
-// const useStyles = makeStyles((theme) => ({
-//   root: {
-//     display: 'flex',
-//     flexWrap: 'wrap',
-//   },
-//   margin: {
-//     margin: theme.spacing(1),
-//   },
-//   withoutLabel: {
-//     marginTop: theme.spacing(3),
-//   },
-//   textField: {
-//     width: '25ch',
-//   },
-// }));
 export default function CustomizedInputs() {
-  // const classes = useStyles();
-  // const [values, setValues] = React.useState({
-  //   amount: '',
-  //   password: '',
-  //   weight: '',
-  //   weightRange: '',
-  //   showPassword: false,
-  // });
+
+const [batCap,setBatCap] = useState(0)
+const [clkSpeed,setClkspeed] = useState(0)
+const [intMem,setIntMem] = useState(0)
+const [pc,setPc] = useState(0)
+const [fc,setFc] = useState(0)
+const [mobDepth,setMobDepth] = useState(0)
+const [mobWeight,setMobWeight] = useState(0)
+const [pxh,setPxh] = useState(0)
+const [pxw,setPxw] = useState(0)
+const [sh,setSh] = useState(0)
+const [sw,setSw] = useState(0)
+const [tt,setTt] = useState(0)
+const [cpuCores,setCpuCores] = useState(1)
+const [blu,setBlu]=useState(false)
+const [dsim,setDsim]=useState(false)
+const [fourg,setFourg]=useState(false)
+const [threeg,setThreeg]=useState(false)
+const [wif,setWif]=useState(false)
+const [tou,setTou]=useState(false) 
+let myObj ={
+  batCap,
+  clkSpeed,
+  intMem,
+  pc,
+  fc,
+  mobDepth,
+  mobWeight,
+  pxh,
+  pxw,
+  sh,
+  sw,
+  tt,
+  cpuCores,
+  blu,
+  dsim,
+  fourg,
+  threeg,
+  wif,
+  tou
+}
 
   return (
     <>
+    <Button onClick={()=>{console.log(myObj)}} variant="contained" style={{backgroundColor:'#f9cec3'}}>Click to Predict
+      </Button>
     <form   noValidate>
       <CssTextField
+        type="number"
+        autoComplete="off"
+        onChange={event => setBatCap(event.target.value)}
         variant="outlined"
-        style={{color: "#ff8080 !important", marginTop:"10px",width:"300px", marginRight:"10px", marginLeft:"0px"}}
+        style={{color: "#f9cec3 !important", marginTop:"10px",width:"300px", marginRight:"10px", marginLeft:"0px"}}
         // className={classes.margin}
         label="Battery capacity"
         id="custom-css-outlined-input"
         InputProps={{
-          endAdornment: <InputAdornment position="end"><span style={{color:"rgba(255, 128, 128, 0.5)"}} >mAh</span></InputAdornment>,
+          endAdornment: <InputAdornment position="end"><span style={{color:"rgba(249, 206, 195, 0.5)"}} >mAh</span></InputAdornment>,
         }}
       /> 
       <CssTextField
+        type="number"
+        autoComplete="off"
+        onChange={event => setClkspeed(event.target.value)}
         style={{marginTop:"10px",width:"300px", marginRight:"10px", marginLeft:"0px"}}
         // className={classes.margin}
         label="Processor Clock speed"
         variant="outlined"
         id="custom-css-outlined-input"
         InputProps={{
-          endAdornment: <InputAdornment position="end"><span style={{color:"rgba(255, 128, 128, 0.5)"}} >GHz</span></InputAdornment>,
+          endAdornment: <InputAdornment position="end"><span style={{color:"rgba(249, 206, 195, 0.5)"}} >GHz</span></InputAdornment>,
         }}
       />
       <CssTextField
+        type="number"
+        autoComplete="off"
+        onChange={event => setIntMem(event.target.value)}
         style={{marginTop:"10px",width:"300px", marginRight:"10px", marginLeft:"0px"}}
         // className={classes.margin}
         label="Internal Memory"
         variant="outlined"
         id="custom-css-outlined-input"
         InputProps={{
-          endAdornment: <InputAdornment position="end"><span style={{color:"rgba(255, 128, 128, 0.5)"}} >GB</span></InputAdornment>,
+          endAdornment: <InputAdornment position="end"><span style={{color:"rgba(249, 206, 195, 0.5)"}} >GB</span></InputAdornment>,
         }}
       />
       <CssTextField
+        type="number"
+        autoComplete="off"
+        onChange={event => setPc(event.target.value)}
         style={{marginTop:"10px",width:"300px", marginRight:"10px", marginLeft:"0px"}}
         // className={classes.margin}
         label="Primary Camera"
         variant="outlined"
         id="custom-css-outlined-input"
         InputProps={{
-          endAdornment: <InputAdornment position="end"><span style={{color:"rgba(255, 128, 128, 0.5)"}} >mp</span></InputAdornment>,
+          endAdornment: <InputAdornment position="end"><span style={{color:"rgba(249, 206, 195, 0.5)"}} >mp</span></InputAdornment>,
         }}
       />
       <CssTextField
+        type="number"
+        autoComplete="off"
+        onChange={event => setFc(event.target.value)}
         style={{marginTop:"10px",width:"300px", marginRight:"10px", marginLeft:"0px"}}
         // className={classes.margin}
         label="Front Camera"
         variant="outlined"
         id="custom-css-outlined-input"
         InputProps={{
-          endAdornment: <InputAdornment position="end"><span style={{color:"rgba(255, 128, 128, 0.5)"}} >mp</span></InputAdornment>,
+          endAdornment: <InputAdornment position="end"><span style={{color:"rgba(249, 206, 195, 0.5)"}} >mp</span></InputAdornment>,
         }}
       />
       <CssTextField
+        type="number"
+        autoComplete="off"
+        onChange={event => setMobDepth(event.target.value)}
         style={{marginTop:"10px",width:"300px", marginRight:"10px", marginLeft:"0px"}}
         // className={classes.margin}
         label="Mobile Depth"
         variant="outlined"
         id="custom-css-outlined-input"
         InputProps={{
-          endAdornment: <InputAdornment position="end"><span style={{color:"rgba(255, 128, 128, 0.5)"}} >cm</span></InputAdornment>,
+          endAdornment: <InputAdornment position="end"><span style={{color:"rgba(249, 206, 195, 0.5)"}} >cm</span></InputAdornment>,
         }}
       />
       <CssTextField
+        type="number"
+        autoComplete="off"
+        onChange={event => setMobWeight(event.target.value)}
         style={{marginTop:"10px",width:"300px", marginRight:"10px", marginLeft:"0px"}}
         // className={classes.margin}
         label="Mobile Weight"
         variant="outlined"
         id="custom-css-outlined-input"
         InputProps={{
-          endAdornment: <InputAdornment position="end"><span style={{color:"rgba(255, 128, 128, 0.5)"}} >g</span></InputAdornment>,
+          endAdornment: <InputAdornment position="end"><span style={{color:"rgba(249, 206, 195, 0.5)"}} >g</span></InputAdornment>,
         }}
       />
       <CssTextField
+        type="number"
+        autoComplete="off"
+        onChange={event => setPxh(event.target.value)}
         style={{marginTop:"10px",width:"300px", marginRight:"10px", marginLeft:"0px"}}
         // className={classes.margin}
         label="Pixel Resolution Height"
         variant="outlined"
         id="custom-css-outlined-input"
         InputProps={{
-          endAdornment: <InputAdornment position="end"><span style={{color:"rgba(255, 128, 128, 0.5)"}} >px</span></InputAdornment>,
+          endAdornment: <InputAdornment position="end"><span style={{color:"rgba(249, 206, 195, 0.5)"}} >px</span></InputAdornment>,
         }}
       />
       <CssTextField
+        type="number"
+        autoComplete="off"
+        onChange={event => setPxw(event.target.value)}
         style={{marginTop:"10px",width:"300px", marginRight:"10px", marginLeft:"0px"}}
         // className={classes.margin}
         label="Pixel Resolution Width"
         variant="outlined"
         id="custom-css-outlined-input"
         InputProps={{
-          endAdornment: <InputAdornment position="end"><span style={{color:"rgba(255, 128, 128, 0.5)"}} >px</span></InputAdornment>,
+          endAdornment: <InputAdornment position="end"><span style={{color:"rgba(249, 206, 195, 0.5)"}} >px</span></InputAdornment>,
         }}
       />
       <CssTextField
+        type="number"
+        autoComplete="off"
+        onChange={event => setSh(event.target.value)}
         style={{marginTop:"10px",width:"300px", marginRight:"10px", marginLeft:"0px"}}
         // className={classes.margin}
         label="Screen Height"
         variant="outlined"
         id="custom-css-outlined-input"
         InputProps={{
-          endAdornment: <InputAdornment position="end"><span style={{color:"rgba(255, 128, 128, 0.5)"}} >cm</span></InputAdornment>,
+          endAdornment: <InputAdornment position="end"><span style={{color:"rgba(249, 206, 195, 0.5)"}} >cm</span></InputAdornment>,
         }}
       />
       <CssTextField
+        type="number"
+        autoComplete="off"
+        onChange={event => setSw(event.target.value)}
         style={{marginTop:"10px",width:"300px", marginRight:"10px", marginLeft:"0px"}}
         // className={classes.margin}
         label="Screen Width"
         variant="outlined"
         id="custom-css-outlined-input"
         InputProps={{
-          endAdornment: <InputAdornment position="end"><span style={{color:"rgba(255, 128, 128, 0.5)"}} >cm</span></InputAdornment>,
+          endAdornment: <InputAdornment position="end"><span style={{color:"rgba(249, 206, 195, 0.5)"}} >cm</span></InputAdornment>,
         }}
       />
       <CssTextField
+        type="number"
+        autoComplete="off"
+        onChange={event => setTt(event.target.value)}
         style={{marginTop:"10px",width:"300px", marginRight:"10px", marginLeft:"0px"}}
         // className={classes.margin}
         label="Talk Time"
         variant="outlined"
         id="custom-css-outlined-input"
         InputProps={{
-          endAdornment: <InputAdornment position="end"><span style={{color:"rgba(255, 128, 128, 0.5)"}} >h</span></InputAdornment>,
+          endAdornment: <InputAdornment position="end"><span style={{color:"rgba(249, 206, 195, 0.5)"}} >h</span></InputAdornment>,
         }}
       />
-      <CustomSlider/><br/>
-      <FormControlLabel
-    style={{marginTop:"10px", marginLeft:"0px"}}
+      <CustomSlider updateVal={(nomb)=>{setCpuCores(nomb)}}/><br/>
+    <FormControlLabel   style={{marginTop:"10px", marginLeft:"0px"}}
     value='blue'
-    control={<ThemeProvider theme={theme}><MyCheckbox color="primary"/></ThemeProvider>}
-    label={<span style={{color:"#ff8080"}}>Bluetooth</span>}
+    control={<ThemeProvider theme={theme}><MyCheckbox onChange={(event)=>{setBlu(event.target.checked)}} color="primary"/></ThemeProvider>}
+    label={<span style={{color:"#f9cec3"}}>Bluetooth</span>}
     />
-    <FormControlLabel
-    style={{marginTop:"10px", marginLeft:"0px"}}
-    value='dual_sim'
-    control={<ThemeProvider theme={theme}><MyCheckbox color="primary"/></ThemeProvider>}
-    label={<span style={{color:"#ff8080"}}>Dual Sim Support</span>}
+    <FormControlLabel   style={{marginTop:"10px", marginLeft:"0px"}}
+    value=''
+    control={<ThemeProvider theme={theme}><MyCheckbox onChange={(event)=>{setDsim(event.target.checked)}} color="primary"/></ThemeProvider>}
+    label={<span style={{color:"#f9cec3"}}>Dual Sim support</span>}
     />
     <FormControlLabel
     style={{marginTop:"10px", marginLeft:"0px"}}
     value='four_g'
-    control={<ThemeProvider theme={theme}><MyCheckbox color="primary"/></ThemeProvider>}
-    label={<span style={{color:"#ff8080"}}>4G</span>}
+    control={<ThemeProvider theme={theme}><MyCheckbox onChange={(event)=>{setFourg(event.target.checked)}} color="primary"/></ThemeProvider>}
+    label={<span style={{color:"#f9cec3"}}>4G</span>}
     />
     <FormControlLabel
     style={{marginTop:"10px", marginLeft:"0px"}}
     value='three_g'
-    control={<ThemeProvider theme={theme}><MyCheckbox color="primary"/></ThemeProvider>}
-    label={<span style={{color:"#ff8080"}}>3G</span>}
+    control={<ThemeProvider theme={theme}><MyCheckbox onChange={(event)=>{setThreeg(event.target.checked)}} color="primary"/></ThemeProvider>}
+    label={<span style={{color:"#f9cec3"}}>3G</span>}
     />
-    <FormControlLabel
-    style={{marginTop:"10px", marginLeft:"0px"}}
+    <FormControlLabel   style={{marginTop:"10px", marginLeft:"0px"}}
     value='touch_screen'
-    control={<ThemeProvider theme={theme}><MyCheckbox color="primary"/></ThemeProvider>}
-    label={<span style={{color:"#ff8080"}}>WiFi</span>}
+    control={<ThemeProvider theme={theme}><MyCheckbox onChange={(event)=>{setWif(event.target.checked)}} color="primary"/></ThemeProvider>}
+    label={<span style={{color:"#f9cec3"}}>WiFi</span>}
     />
-    <FormControlLabel
-    style={{marginTop:"10px", marginLeft:"0px"}}
+    <FormControlLabel   style={{marginTop:"10px", marginLeft:"0px"}}
     value='four_g'
-    control={<ThemeProvider theme={theme}><MyCheckbox color="primary"/></ThemeProvider>}
-    label={<span style={{color:"#ff8080"}}>Touch</span>}
+    control={<ThemeProvider theme={theme}><MyCheckbox onChange={(event)=>{setTou(event.target.checked)}} color="primary"/></ThemeProvider>}
+    label={<span style={{color:"#f9cec3"}}>Touch</span>}
     />
     </form>
     </>
