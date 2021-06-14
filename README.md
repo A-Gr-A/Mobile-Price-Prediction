@@ -18,7 +18,8 @@ Fire up a new terminal window(`ctrl`+`alt`+`T`)
 `cd mpp`  
 `source ./bin/activate`  
 `cd Mobile-Price-Prediction/backend`  
-`pyton3 main.py`  
+`export FLASK_APP=main.py` 
+`flask run`
 
 
 ## Screenshots  
