@@ -116,7 +116,7 @@ let myObj ={
 async function btnhandler(){
   console.log(myObj);
   try{
-    let result = await fetch('/api',{
+     await fetch('/api',{
       method:'POST',
       headers:{
         'Accept':'application/json',

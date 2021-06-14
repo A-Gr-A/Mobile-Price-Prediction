@@ -1,11 +1,12 @@
 from flask import Flask, render_template, request
-app = Flask(__name__,static_foler='./../client/build',static_url_path='/')
+app = Flask(__name__,static_folder='./client/build',static_url_path='')
+
 @app.route("/")
 def index():
    return app.send_static_file('index.html')
 
 @app.route("/api",methods=['GET','POST'])
-def index():
+def methodhanlers():
    if request.method =='GET':
       print("in get request")
       return {
