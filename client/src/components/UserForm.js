@@ -113,10 +113,27 @@ let myObj ={
   wif,
   tou
 }
+async function btnhandler(){
+  console.log(myObj);
+  try{
+    let result = await fetch('/api',{
+      method:'POST',
+      headers:{
+        'Accept':'application/json',
+        'Content-type':'application/json',
+      },
+      body: JSON.stringify(myObj)
+    }).then(
+      response=>{console.log(response)}
+    );
+  }catch(e){
+    console.log(e)
+  }
+}
 
   return (
     <>
-    <Button onClick={()=>{console.log(myObj)}} variant="contained" style={{backgroundColor:'#f9cec3'}}>Click to Predict
+    <Button onClick={()=>btnhandler()} variant="contained" style={{backgroundColor:'#f9cec3'}}>Click to Predict
       </Button>
     <form   noValidate>
       <CssTextField
