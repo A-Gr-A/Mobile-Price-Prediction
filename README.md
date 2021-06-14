@@ -23,4 +23,5 @@ Fire up a new terminal window(`ctrl`+`alt`+`T`)
 
 ## Screenshots  
 ![screenshot-1](./screenshots/mpp-page.png)
-![screenshot-2](./screenshots/mpp-page-mobile.png)
+<div style="text-align:center"><img src="./screenshots/mpp-page-mobile.png" /></div>
+
