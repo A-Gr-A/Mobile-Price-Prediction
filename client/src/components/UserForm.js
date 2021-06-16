@@ -5,7 +5,7 @@ import {
 } from '@material-ui/core/styles';
 import CheckBox from '@material-ui/core/Checkbox'
 import TextField from '@material-ui/core/TextField';
-import { FormControlLabel,ThemeProvider,Button,InputAdornment} from  '@material-ui/core';
+import { FormControlLabel,ThemeProvider,Button,InputAdornment, Typography} from  '@material-ui/core';
 import { createMuiTheme } from '@material-ui/core/styles';
 import CustomSlider from './CustomSlider.js'
 const theme = createMuiTheme({
@@ -73,45 +73,49 @@ const MyCheckbox = withStyles({
 })(CheckBox);
 export default function CustomizedInputs() {
 
-const [batCap,setBatCap] = useState(0)
-const [clkSpeed,setClkspeed] = useState(0)
-const [intMem,setIntMem] = useState(0)
-const [pc,setPc] = useState(0)
+var result;
+const [battery_power,setBatCap] = useState(0)
+const [blue,setBlu]=useState(false)
+const [clock_speed,setClkspeed] = useState(0)
+const [dual_sim,setDsim]=useState(false)
 const [fc,setFc] = useState(0)
-const [mobDepth,setMobDepth] = useState(0)
-const [mobWeight,setMobWeight] = useState(0)
-const [pxh,setPxh] = useState(0)
-const [pxw,setPxw] = useState(0)
-const [sh,setSh] = useState(0)
-const [sw,setSw] = useState(0)
-const [tt,setTt] = useState(0)
-const [cpuCores,setCpuCores] = useState(1)
-const [blu,setBlu]=useState(false)
-const [dsim,setDsim]=useState(false)
-const [fourg,setFourg]=useState(false)
-const [threeg,setThreeg]=useState(false)
-const [wif,setWif]=useState(false)
-const [tou,setTou]=useState(false) 
+const [four_g,setFourg]=useState(false)
+const [int_memory,setIntMem] = useState(0)
+const [m_dep,setMobDepth] = useState(0)
+const [mobile_wt,setMobWeight] = useState(0)
+const [n_cores,setCpuCores] = useState(1)
+const [pc,setPc] = useState(0)
+const [px_height,setPxh] = useState(0)
+const [px_width,setPxw] = useState(0)
+const [ram,setRam] = useState(0)
+const [sc_h,setSh] = useState(0)
+const [sc_w,setSw] = useState(0)
+const [talk_time,setTt] = useState(0)
+const [three_g,setThreeg]=useState(false)
+const [touch_screen,setTou]=useState(false)
+const [wifi,setWif]=useState(false) 
+
 let myObj ={
-  batCap,
-  clkSpeed,
-  intMem,
-  pc,
-  fc,
-  mobDepth,
-  mobWeight,
-  pxh,
-  pxw,
-  sh,
-  sw,
-  tt,
-  cpuCores,
-  blu,
-  dsim,
-  fourg,
-  threeg,
-  wif,
-  tou
+battery_power,
+blue,
+clock_speed,
+dual_sim,
+fc,
+four_g,
+int_memory,
+m_dep,
+mobile_wt,
+n_cores,
+pc,
+px_height,
+px_width,
+ram,
+sc_h,
+sc_w,
+talk_time,
+three_g,
+touch_screen,
+wifi
 }
 async function btnhandler(){
   console.log(myObj);
@@ -124,7 +128,11 @@ async function btnhandler(){
       },
       body: JSON.stringify(myObj)
     }).then(
-      response=>{console.log(response)}
+      (response)=>response.json()
+    ).then(
+      (responseJson)=>{
+        result = responseJson.result
+        console.log(result)}
     );
   }catch(e){
     console.log(e)
@@ -133,10 +141,12 @@ async function btnhandler(){
 
   return (
     <>
-    <Button onClick={()=>btnhandler()} variant="contained" style={{backgroundColor:'#f9cec3'}}>Click to Predict
+    <Button onClick={()=>btnhandler()} variant="contained" type="submit" style={{backgroundColor:'#f9cec3'}}>Click to Predict
       </Button>
+      <Typography style={{color:'#f9cec3',display:'inline-block',marginLeft:'20px'}}> Estimated Price is {result}</Typography>
     <form   noValidate>
       <CssTextField
+        required
         type="number"
         autoComplete="off"
         onChange={event => setBatCap(event.target.value)}
@@ -160,6 +170,19 @@ async function btnhandler(){
         id="custom-css-outlined-input"
         InputProps={{
           endAdornment: <InputAdornment position="end"><span style={{color:"rgba(249, 206, 195, 0.5)"}} >GHz</span></InputAdornment>,
+        }}
+      />
+      <CssTextField
+        type="number"
+        autoComplete="off"
+        onChange={event => setRam(event.target.value)}
+        style={{marginTop:"10px",width:"300px", marginRight:"10px", marginLeft:"0px"}}
+        // className={classes.margin}
+        label="RAM"
+        variant="outlined"
+        id="custom-css-outlined-input"
+        InputProps={{
+          endAdornment: <InputAdornment position="end"><span style={{color:"rgba(249, 206, 195, 0.5)"}} >GB</span></InputAdornment>,
         }}
       />
       <CssTextField
