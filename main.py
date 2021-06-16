@@ -6,7 +6,7 @@ import pandas as pd
 import joblib
 from X import X
 app = FastAPI()
-# app.mount("/homepage", StaticFiles(directory="./client/build", html='index.html'), name="static")
+app.mount("/home" , StaticFiles(directory="./client/build", html='index.html'), name="static")
 
 def preprocess_input(df):
   df['px_area'] = df['px_width'] * df['px_height'] / (1024**2)
@@ -23,12 +23,6 @@ df_cols = ['battery_power','blue','clock_speed','dual_sim','fc','four_g',
            'px_width','ram','sc_h','sc_w','talk_time','three_g',
            'touch_screen','wifi']
  
-dict_cols = ['batCap', 'blu', 'clkSpeed', 'dsim', 'fc', 'fourg', 
-             'intMem', 'mobDepth', 'mobWeight', 'cpuCores', 'pc',
-             'pxh', 'pxw', 'ram', 'sh', 'sw', 'tt', 'threeg',
-             'tou', 'wif']
- 
- 
 def get_prediction(X_in):
   d = pd.DataFrame(columns = df_cols)
  
@@ -43,10 +37,10 @@ def get_prediction(X_in):
 
 @app.post('/api')
 def predict(X_in:X):
-   print(X_in)
    X_in = X_in.dict()
    X_in = preprocess_input(X_in)
    
+   print(X_in)
    return {
       "ans": get_prediction(X_in) 
    }
