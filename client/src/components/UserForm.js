@@ -5,7 +5,7 @@ import {
 } from '@material-ui/core/styles';
 import CheckBox from '@material-ui/core/Checkbox'
 import TextField from '@material-ui/core/TextField';
-import { FormControlLabel,ThemeProvider,Button,InputAdornment, Typography} from  '@material-ui/core';
+import { FormControlLabel,ThemeProvider,Button,InputAdornment, Typography,CircularProgress} from  '@material-ui/core';
 import { createMuiTheme } from '@material-ui/core/styles';
 import CustomSlider from './CustomSlider.js'
 const theme = createMuiTheme({
@@ -73,7 +73,6 @@ const MyCheckbox = withStyles({
 })(CheckBox);
 export default function CustomizedInputs() {
 
-var result;
 const [battery_power,setBatCap] = useState(0)
 const [blue,setBlu]=useState(false)
 const [clock_speed,setClkspeed] = useState(0)
@@ -94,6 +93,8 @@ const [talk_time,setTt] = useState(0)
 const [three_g,setThreeg]=useState(false)
 const [touch_screen,setTou]=useState(false)
 const [wifi,setWif]=useState(false) 
+const [display,setDisplay]=useState(0);
+const [result,setResult]=useState();
 
 let myObj ={
 battery_power,
@@ -119,6 +120,7 @@ wifi
 }
 async function btnhandler(){
   console.log(myObj);
+  setDisplay(1);
   try{
      await fetch('/api',{
       method:'POST',
@@ -131,10 +133,12 @@ async function btnhandler(){
       (response)=>response.json()
     ).then(
       (responseJson)=>{
-        result = responseJson.result
+        setResult(responseJson.result);
+        setDisplay(2);
         console.log(result)}
     );
   }catch(e){
+    setDisplay(3)
     console.log(e)
   }
 }
@@ -143,7 +147,7 @@ async function btnhandler(){
     <>
     <Button onClick={()=>btnhandler()} variant="contained" type="submit" style={{backgroundColor:'#f9cec3'}}>Click to Predict
       </Button>
-      <Typography style={{color:'#f9cec3',display:'inline-block',marginLeft:'20px'}}> Estimated Price is {result}</Typography>
+      <Typography style={{color:'#f9cec3',display:'inline-block',marginLeft:'20px'}}> {display===0?"":display===1? <CircularProgress style={{'color': '#f9cec3'}} size={20}/> :display===2?`${result}`:'SOME VALUES MISSING IN ENTRY'} </Typography>
     <form   noValidate>
       <CssTextField
         required
