@@ -186,7 +186,7 @@ async function btnhandler(){
         variant="outlined"
         id="custom-css-outlined-input"
         InputProps={{
-          endAdornment: <InputAdornment position="end"><span style={{color:"rgba(249, 206, 195, 0.5)"}} >GB</span></InputAdornment>,
+          endAdornment: <InputAdornment position="end"><span style={{color:"rgba(249, 206, 195, 0.5)"}} >MB</span></InputAdornment>,
         }}
       />
       <CssTextField
